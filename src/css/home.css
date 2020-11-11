@@ -1,0 +1,28 @@
+header {
+    text-align: center;
+    background-position: center;
+}
+
+.blind {
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+.button-submit{
+    width: 40px;
+    height: 30px;
+}
+
+.banner {
+    font-size: 30px;
+    vertical-align: middle;
+    background: url(../image/scholar_logo_64dp.png);
+    overflow: hidden;
+}
+
+.center-align-search-bar{
+
+}
