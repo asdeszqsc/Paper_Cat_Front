@@ -1,41 +1,36 @@
 header {
-    text-align: center;
-    background-position: center;
+  text-align: center;
 }
 
-
-.navbar{
-    height: 100px;
+body {
+  text-align: center;
 }
 
-.search-bar{
-    width: 800px;
-    height: 50px;
+.navbar {
+  height: 100px;
+  align-items: flex-start;
+  font-size: 12px;
+}
+
+.search-box {
+  display: inline-block;
+  min-width: 460px;
 }
 
 .blind {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    margin: -1px;
-    width: 1px;
-    height: 1px;
-}
-
-.button-submit{
-    width: 40px;
-    height: 30px;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
 }
 
 .banner {
-    width: 510px;
-    height: 100px;
-    vertical-align: middle;
-    background: url(../image/paper_cat_logo_500x100.png) no-repeat;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.center-align-search-bar{
-    vertical-align: auto;
+  width: 510px;
+  height: 100px;
+  vertical-align: middle;
+  background: url(../image/paper_cat_logo_500x100.png) no-repeat;
+  overflow: hidden;
+  display: inline-block;
 }

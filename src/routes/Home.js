@@ -9,7 +9,7 @@ class Home extends Component {
                 <header>
                     <div className="navbar">
                         <nav>
-                            <span></span>
+                            <span>논문 추천 프로젝트 페이퍼 캣</span>
                         </nav>
                     </div>
                     <div class="banner">
@@ -19,7 +19,7 @@ class Home extends Component {
                     </div>
                 </header>
                 <body>
-                    <div>
+                    <div className="search-box">
                         <SearchBox/>
                     </div>
                 </body>
