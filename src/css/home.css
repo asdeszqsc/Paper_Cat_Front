@@ -3,7 +3,18 @@ header {
     background-position: center;
 }
 
+
+.navbar{
+    height: 100px;
+}
+
+.search-bar{
+    width: 800px;
+    height: 50px;
+}
+
 .blind {
+    position: absolute;
     overflow: hidden;
     clip: rect(0 0 0 0);
     margin: -1px;
@@ -17,12 +28,14 @@ header {
 }
 
 .banner {
-    font-size: 30px;
+    width: 510px;
+    height: 100px;
     vertical-align: middle;
-    background: url(../image/scholar_logo_64dp.png);
+    background: url(../image/paper_cat_logo_500x100.png) no-repeat;
     overflow: hidden;
+    display: inline-block;
 }
 
 .center-align-search-bar{
-
+    vertical-align: auto;
 }
