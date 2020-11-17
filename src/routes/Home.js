@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBox from "../components/Input";
+import Help from "../components/help";
 import "../css/home.css";
 
 class Home extends Component {
@@ -20,6 +21,7 @@ class Home extends Component {
                 </header>
                 <body>
                     <div className="search-box">
+                        <Help/>
                         <SearchBox/>
                     </div>
                 </body>

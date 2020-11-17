@@ -1,6 +1,13 @@
 .form-control {
+  border-right: none;
 }
 
 .input-group {
   font-size: 12px;
+}
+
+.input-button{
+  border: 1px solid #ced4da;
+  padding-bottom: 5px;
+  border-left: none;
 }

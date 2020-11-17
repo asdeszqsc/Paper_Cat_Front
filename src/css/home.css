@@ -17,6 +17,13 @@ body {
   min-width: 460px;
 }
 
+.search-bar{
+  display: inline-block;
+  position: relative;
+  right: 25px;
+  min-width: 460px;
+}
+
 .blind {
   position: absolute;
   overflow: hidden;
@@ -27,10 +34,10 @@ body {
 }
 
 .banner {
-  width: 510px;
-  height: 100px;
+  width: 503px;
+  height: 93px;
   vertical-align: middle;
-  background: url(../image/paper_cat_logo_500x100.png) no-repeat;
+  background: url(../image/papercat_logo_pro_500x100.png.jpg) no-repeat;
   overflow: hidden;
   display: inline-block;
 }
