@@ -2,6 +2,10 @@
 
 }
 
+.popover{
+    max-width: none !important;
+}
+
 .btn-link{
     color: #6c757d;
     right: 30px;

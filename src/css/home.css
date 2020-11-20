@@ -20,7 +20,7 @@ body {
 .search-bar{
   display: inline-block;
   position: relative;
-  right: 25px;
+  right: 28px;
   min-width: 460px;
 }
 
@@ -35,9 +35,9 @@ body {
 
 .banner {
   width: 503px;
-  height: 93px;
+  height: 130px;
   vertical-align: middle;
-  background: url(../image/papercat_logo_pro_500x100.png.jpg) no-repeat;
+  background: url(../image/papercat_logo_pro_v4_500x100.png) no-repeat;
   overflow: hidden;
   display: inline-block;
 }
