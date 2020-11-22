@@ -1,0 +1,15 @@
+.history-box{
+    border: black solid 2px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    margin-top: 200px;
+    width: 90%;
+    height: 35%;
+}
+
+.recommand-box{
+    border: black solid 2px;
+    margin-left: 10px;
+    width: 90%;
+    height: 35%;
+}

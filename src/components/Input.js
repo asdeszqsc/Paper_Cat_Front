@@ -9,16 +9,13 @@ class SearchBox extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            keyword:[{
-                id:0,
-                key:'',
-                }
-            ] 
+            id:0,
+            keyword:'',
         }
     }
 
     SubmitbyEnter = (target) => {
-        if(target.charCode == 13){ 
+        if(target.charCode == 13){
             this.handleCreate();
         }
     }
@@ -27,15 +24,15 @@ class SearchBox extends Component {
         this.setState({keyword: event.target.value})
     }
 
-    handleCreate = (data) =>{
-        const keyword = this.state;
-        this.setState({keyword: keyword.concat({id: this.keyword.id++, ...data})})
+    handleCreate = () =>{
+        this.setState({keyword:''})
+        console.log(this.state.keyword);
     }
 
     render() {
         return ( 
             <span className="search-bar">
-                <InputGroup className="mb-3" onKeyPress={this.SubmitbyEnter} >
+                <InputGroup className="mb-3" onKeyPress={this.SubmitbyEnter} onCreate={this.handleCreate} >
                     <FormControl
                         aria-label="키워드 검색"
                         aria-describedby="basic-addon2"
@@ -44,7 +41,12 @@ class SearchBox extends Component {
                         onChange={this.handleChange}
                     />
                     <InputGroup.Append>
-                        <Link to='/about'>
+                        <Link to={{pathname:'/about/${this.props.keyword}',
+                                    state:{
+                                        id: this.state.id,
+                                        keyword: this.state.keyword,
+                                    }
+                                }} >
                             <Button type="submit" variant="outline-secondary" className="input-button" >
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{marginBottom:'10px', position:'absolute', right:'8px', top:'8px'}}>
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>

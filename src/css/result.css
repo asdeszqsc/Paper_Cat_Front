@@ -1,0 +1,62 @@
+.search-bar{
+    margin-left: 265px;
+    margin-top: 30px;
+    min-width: 600px;
+}
+
+.contents-wrap{
+    text-align: left;
+}
+
+.body-contents{
+    display: inline;
+}
+
+.paper-result{
+    display: inline-block;
+    position: absolute;
+    border: #c7daef 1px solid;
+    width: 800px;
+    height: 1000px;
+    margin-left: 3%;
+    margin-top: 3%;
+    text-align: left;
+}
+
+.result-header{
+    border-bottom: 1px solid #e7e7e7;
+    text-align: left;
+    height: 18%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+}
+
+.keyword-box{
+    display: inline-block;
+    border-right: 1px solid #e7e7e7;
+    margin: 0 auto;
+    float: left;
+    width: 16%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-control {
+    border: 3px solid #ced4da;
+    border-right: none;
+}
+
+.input-group {
+    font-size: 12px;
+    height: 50px;
+}
+
+.input-button{
+    border: 3px solid #ced4da;
+    border-left: none;
+    padding-bottom: 26px;
+    height: 50px;
+    padding-left: 21px;
+    right: 1px;
+}
