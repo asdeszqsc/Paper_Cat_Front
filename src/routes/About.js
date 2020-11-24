@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import History from '../components/history';
 import SearchBox from '../components/Input';
 import Recommand from '../components/recokeyword';
-import Paper from '../components/paper';
+import PaperTable from '../components/papertable';
 import '../css/result.css';
 
 class About extends Component {
@@ -17,7 +17,9 @@ class About extends Component {
         return ( 
             <div className="contents-wrap">
                 <div className="result-header">
-                    <SearchBox ></SearchBox>
+                    <div className="result-input-box">
+                        <SearchBox></SearchBox>
+                    </div>
                 </div>
                 <div className="body-contents">
                     <div className="keyword-box">
@@ -25,7 +27,7 @@ class About extends Component {
                         <Recommand></Recommand>
                     </div>
                     <div className="main-contents-box">
-                        <Paper></Paper>
+                        <PaperTable></PaperTable>
                     </div>
                 </div>
             </div>

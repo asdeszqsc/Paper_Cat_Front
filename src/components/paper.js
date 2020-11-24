@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import '../css/result.css';
+import React, { Component } from 'react';  
+import papers from '../'
 
-class Paper extends Component {
+
+class  extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        return ( 
-            <div className="paper-result">
-
-            </div>
-        );
+        return (  );
     }
 }
-
-export default Paper;
+ 
+export default ;
