@@ -1,62 +1,61 @@
-
-.contents-wrap{
-    text-align: left;
+.contents-wrap {
+  text-align: left;
 }
 
-.result-input-box{
-    margin-left: 250px;
-    margin-top: 30px;
+.result-input-box {
+  margin-left: 300px;
+  margin-top: 30px;
 }
 
-.body-contents{
-    display: inline;
+.body-contents {
+  display: inline-block;
 }
 
-.paper-result{
-    display: inline-block;
-    position: absolute;
-    border: #c7daef 1px solid;
-    width: 800px;
-    height: 1000px;
-    margin-left: 3%;
-    margin-top: 3%;
-    text-align: left;
+.paper-result {
+  display: inline-block;
+  position: absolute;
+  border: #c7daef 1px solid;
+  width: 800px;
+  min-height: 1000px;
+  margin-left: 3%;
+  margin-top: 3%;
+  text-align: left;
 }
 
-.result-header{
-    display: inline-block;
-    border-bottom: 1px solid #e7e7e7;
-    text-align: left;
-    height: 18%;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    z-index: 999;
+.result-header {
+  display: inline-block;
+  border-bottom: 1px solid #e7e7e7;
+  text-align: left;
+  height: 18%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 999;
 }
 
-.keyword-box{
-    display: inline-block;
-    border-right: 1px solid #e7e7e7;
-    margin: 0 auto;
-    width: 16%;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
+.keyword-box {
+  display: inline-block;
+  border-right: 1px solid #e7e7e7;
+  margin: 0 auto;
+  width: 200px;
+  min-height: 1030px;
+  background-color: rgb(255, 255, 255);
 }
 
 .form-control {
-    border: 3px solid #ced4da;
-    border-right: none;
-} 
-
-.input-group {
-    font-size: 12px;
-    height: 50px;
+  border: 3px solid #ced4da;
+  border-right: none;
 }
 
-.input-button{
-    border: 3px solid #ced4da;
-    border-left: none;
-    padding-bottom: 26px;
-    height: 26px;
-    padding-left: 21px;
-    right: 1px;
+.input-group {
+  font-size: 12px;
+  height: 50px;
+}
+
+.input-button {
+  border: 3px solid #ced4da;
+  border-left: none;
+  padding-bottom: 26px;
+  height: 26px;
+  padding-left: 21px;
+  right: 1px;
 }

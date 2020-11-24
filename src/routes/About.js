@@ -22,13 +22,13 @@ class About extends Component {
                     </div>
                 </div>
                 <div className="body-contents">
-                    <div className="keyword-box">
+                    <span className="keyword-box">
                         <History></History>
                         <Recommand></Recommand>
-                    </div>
-                    <div className="main-contents-box">
+                    </span>
+                    <span className="main-contents-box">
                         <PaperTable></PaperTable>
-                    </div>
+                    </span>
                 </div>
             </div>
         );
