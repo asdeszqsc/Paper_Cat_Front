@@ -41,7 +41,7 @@ class SearchBox extends Component {
                         onChange={this.handleChange}
                     />
                     <InputGroup.Append>
-                        <Link to={{pathname:'/about/${this.props.keyword}',
+                        <Link to={{pathname:'/about/${this.state.keyword}',
                                     state:{
                                         id: this.state.id,
                                         keyword: this.state.keyword,

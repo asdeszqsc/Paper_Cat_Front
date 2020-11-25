@@ -1,3 +1,5 @@
+
+
 .paper-form {
   border: lightblue solid 1px;
   border-radius: 2em;
@@ -13,13 +15,43 @@
 }
 
 .short-info {
+  display: inline-block;
   margin-left: 10px;
   margin-bottom: 30px;
 }
+
+
 
 .expand-button {
   float: right;
   margin-right: 30px;
   border: none;
   background-color: white;
+}
+
+.paper-title-box{
+  border-bottom: black solid 1px;
+}
+
+.author{
+  
+}
+
+.academy{
+
+}
+
+.year{
+
+}
+
+.abstract{
+  font-size: small;
+  margin: 10px;
+  border: darkblue solid 0.5px;
+  line-height: 201%;
+}
+
+.reference{
+
 }
