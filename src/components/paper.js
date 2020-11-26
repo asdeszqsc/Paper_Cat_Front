@@ -47,13 +47,19 @@ class Papers extends Component {
                         </div>
                         {Paper[0].year}
                     </span>
-                </div>
                     <button className='expand-button'>
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
                     </button>
-                    <div className="abstract">{Paper[0].abstract}</div>
+                </div>
+                    
+                    <div className="abstract">
+                        <div className="paper-title-box">
+                            초록
+                        </div>
+                        {Paper[0].abstract}
+                    </div>
                     <div className="reference">{Paper[0].reference}</div>
             </div>
         );
