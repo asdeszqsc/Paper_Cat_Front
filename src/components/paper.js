@@ -5,27 +5,76 @@ import '../css/paper.css';
 class Author extends Component {
     render() { 
         return ( 
-            <span></span>
+            <span>{this.props.author} </span>
+        );
+    }
+}
+
+class Keyword extends Component {
+    render() {
+        return (
+            <span className="paper-keyword-form">{this.props.keyword} </span>
+        );
+    }
+}
+
+class RecPaper extends Component {
+    render() {
+        return (
+            <div className="paper-rec-form">
+                {this.props.key}. {this.props.recommand_paper}
+            </div>
+        );
+    }
+}
+
+class RefPaper extends Component {
+    render() { 
+        return ( 
+            <div className="paper-ref-form">
+                {this.props.key}. {this.props.reference}
+            </div>
         );
     }
 }
 
 
-
-
-
-class Papers extends Component {
+class Papers extends Component{
     constructor(props) {
         super(Paper);
         this.state = {  }
     }
+
+    Map_author = data =>{
+        return(
+            data.map((keyword, index) => {return(<Author author={keyword} key={index}></Author>);})
+        );
+    }
+
+    Map_keyword = data =>{
+        return(
+            data.map((keyword, index) => {return(<Keyword keyword={keyword} key={index}></Keyword>);})
+        );
+    }
+
+    Map_recpaper = data =>{
+        return(
+            data.map((keyword, index) => {return(<RecPaper recommand_paper={keyword} key={index}></RecPaper>);})
+        );
+    }
+
+    Map_ref = data =>{
+        return(
+            data.map((keyword, index) => {return(<RefPaper reference={keyword} key={index}>{index}</RefPaper>);})
+        );
+    }
+
     render() {
-        
         return ( 
             <div className="paper-form">
                 <div className="title"> 
-                    <a href={Paper[0].link}>
-                        {Paper[0].title}
+                    <a href={this.props.Paper.link}>
+                        {this.props.Paper.title}
                     </a>
                 </div>
                 <div className="short-info">
@@ -33,19 +82,19 @@ class Papers extends Component {
                         <div className="paper-title-box">
                             저자
                         </div>
-                        {Paper[0].author}
+                        {this.Map_author(this.props.Paper.author)}
                     </span>
                     <span className="academy">
                         <div className="paper-title-box">
                             학회
                         </div>
-                        {Paper[0].academy} 
+                        {this.props.Paper.academy} 
                     </span>
                     <span className="year">
                         <div className="paper-title-box">
                             발행연도
                         </div>
-                        {Paper[0].year}
+                        {this.props.Paper.year}
                     </span>
                     <button className='expand-button'>
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -53,14 +102,30 @@ class Papers extends Component {
                     </svg>
                     </button>
                 </div>
-                    
                     <div className="abstract">
                         <div className="paper-title-box">
                             초록
                         </div>
-                        {Paper[0].abstract}
+                        {this.props.Paper.abstract}
                     </div>
-                    <div className="reference">{Paper[0].reference}</div>
+                    <div className="reference">
+                        <div className="paper-title-box">
+                            참고 문헌
+                        </div>
+                        {this.Map_ref(this.props.Paper.reference)}
+                    </div>
+                    <div className="recommand-paper">
+                        <div className="paper-title-box">
+                            추천 논문
+                        </div>
+                        {this.Map_recpaper(this.props.Paper.recommand_paper)}
+                    </div>
+                    <div className="keyword">
+                        <div className="paper-title-box">
+                            키워드
+                        </div>
+                        {this.Map_keyword(this.props.Paper.keyword)}
+                    </div>
             </div>
         );
     }

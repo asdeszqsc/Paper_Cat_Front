@@ -5,20 +5,26 @@
 .result-input-box {
   margin-left: 300px;
   margin-top: 30px;
+  border-bottom: #c7daef 1px solid;
 }
 
 .body-contents {
   display: inline-block;
 }
 
+.count-result{
+  line-height: 50px;
+  font-size: small;
+  color: #999;
+}
+
 .paper-result {
   display: inline-block;
   position: absolute;
-  border: #c7daef 1px solid;
   width: 800px;
   min-height: 1000px;
-  margin-left: 3%;
-  margin-top: 3%;
+  margin-left: 1%;
+  margin-top: 1%;
   text-align: left;
 }
 

@@ -5,10 +5,15 @@
   margin-bottom: 40px;
 }
 
+.paper-keyword-form{
+  border: black 0.5px solid;
+  margin: 10px;
+}
+
 .title {
   margin-top: 10px;
   margin-left: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   font-weight: 100;
 }
 
@@ -26,7 +31,27 @@
 }
 
 .paper-title-box {
+  font-weight: 700;
   border-bottom: black solid 1px;
+  margin-top: 15px;
+}
+
+.paper-rec-form{
+  font-size: small;
+  margin: 10px;
+}
+
+.page-item{
+  cursor: pointer;
+}
+
+.page-position{
+  text-align: center;
+}
+
+.paper-ref-form{
+  font-size: small;
+  margin: 10px;
 }
 
 .author {
@@ -49,4 +74,5 @@
 }
 
 .reference {
+
 }
