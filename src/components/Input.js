@@ -5,48 +5,46 @@ import { FormControl, InputGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 class SearchBox extends Component {
-    
+    id=1;
     constructor(props) {
         super(props);
         this.state = { 
-            id:0,
-            keyword:'',
+            word: "",
+            keyword:[
+            ],
         }
     }
 
     SubmitbyEnter = (target) => {
         if(target.charCode == 13){
-            this.handleCreate();
+            this.handleCreate(this.state.word);
         }
     }
 
     handleChange = (event) => {
-        this.setState({keyword: event.target.value})
+        this.setState({word: event.target.value})
     }
 
-    handleCreate = () =>{
-        this.setState({keyword:''})
-        console.log(this.state.keyword);
+    handleCreate = (data) =>{
+        const {keyword} = this.state;
+        this.setState({keyword: keyword.concat({id: this.id++, name: data})})
     }
 
     render() {
+        const word = this.state.word;
+        console.log(this.state.keyword);
         return ( 
             <span className="search-bar">
-                <InputGroup className="mb-3" onKeyPress={this.SubmitbyEnter} onCreate={this.handleCreate} >
+                <InputGroup className="mb-3" onKeyPress={this.SubmitbyEnter} onCreate={this.handleCreate}>
                     <FormControl
                         aria-label="키워드 검색"
                         aria-describedby="basic-addon2"
                         type="text"
-                        value={this.state.keyword.key}
+                        value={word}
                         onChange={this.handleChange}
                     />
                     <InputGroup.Append>
-                        <Link to={{pathname:'/about/${this.state.keyword}',
-                                    state:{
-                                        id: this.state.id,
-                                        keyword: this.state.keyword,
-                                    }
-                                }} >
+                        <Link to={{pathname:'/about/${this.state.keyword}', state: {keyword: this.state.keyword} }} >
                             <Button type="submit" variant="outline-secondary" className="input-button" >
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{marginBottom:'10px', position:'absolute', right:'8px', top:'8px'}}>
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
