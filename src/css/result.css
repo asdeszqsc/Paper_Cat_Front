@@ -5,14 +5,18 @@
 .result-input-box {
   margin-left: 300px;
   margin-top: 30px;
-  border-bottom: #c7daef 1px solid;
 }
 
 .body-contents {
   display: inline-block;
 }
 
-.count-result{
+.Logo {
+  position: relative;
+  left: 50px;
+}
+
+.count-result {
   line-height: 50px;
   font-size: small;
   color: #999;
@@ -29,6 +33,7 @@
 }
 
 .result-header {
+  margin-top: 30px;
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
   text-align: left;

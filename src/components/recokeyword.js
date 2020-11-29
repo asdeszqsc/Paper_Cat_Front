@@ -10,7 +10,7 @@ class RecKeywordForm extends Component {
         return ( 
             <div>
                 <div className="recommand-data-form">
-                    <span>{this.props.name}</span>
+                    <button>{this.props.name}</button>
                 </div>
             </div> 
         );
@@ -40,7 +40,6 @@ class Recommand extends Component {
     }
     
     MapList = (data) =>{
-        console.log(data);
         return(
         data.map((keyword, index) =>{ return (<RecKeywordForm name={keyword.name} key={index}/>);})
         );

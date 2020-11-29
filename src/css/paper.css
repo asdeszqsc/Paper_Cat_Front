@@ -1,11 +1,10 @@
 .paper-form {
-  border: lightblue solid 1px;
-  border-radius: 2em;
+  border: 1px solid #e7e7e7;
   min-height: 100px;
   margin-bottom: 40px;
 }
 
-.paper-keyword-form{
+.paper-keyword-form {
   border: black 0.5px solid;
   margin: 10px;
 }
@@ -32,38 +31,41 @@
 
 .paper-title-box {
   font-weight: 700;
-  border-bottom: black solid 1px;
-  margin-top: 15px;
+  border-bottom: #c7daef 1px solid;
+  margin: 20px;
 }
 
-.paper-rec-form{
+.paper-rec-form {
   font-size: small;
   margin: 10px;
 }
 
-.page-item{
+.page-item {
   cursor: pointer;
 }
 
-.page-position{
+.page-position {
   text-align: center;
 }
 
-.paper-ref-form{
+.paper-ref-form {
   font-size: small;
   margin: 10px;
 }
 
 .author {
   min-width: 150px;
+  margin-left: 20px;
 }
 
 .academy {
   min-width: 150px;
+  margin-left: 20px;
 }
 
 .year {
   min-width: 150px;
+  margin-left: 20px;
 }
 
 .abstract {
@@ -73,6 +75,9 @@
   line-height: 201%;
 }
 
-.reference {
+.keyword {
+  margin-bottom: 20px;
+}
 
+.reference {
 }

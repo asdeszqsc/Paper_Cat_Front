@@ -1,21 +1,22 @@
 .history-box {
+  display: table;
   border: 1px solid #e7e7e7;
   margin-left: 10px;
   margin-bottom: 50px;
   margin-top: 100px;
-  width: 90%;
-  height: 250px;
+  width: 175px;
+  min-height: 250px;
 }
 
-.history-title{
+.history-title {
   text-align: center;
 }
 
-.recommand-title{
+.recommand-title {
   text-align: center;
 }
 
-.recommand-data-form{
+.recommand-data-form {
   text-align: center;
   margin: 10px;
   border-bottom: 1px solid #e7e7e7;
@@ -24,17 +25,31 @@
 .recommand-box {
   border: 1px solid #e7e7e7;
   margin-left: 10px;
-  width: 90%;
-  height: 250px;
+  width: 175px;
+  min-height: 250px;
 }
 
-.delete-button{
+.delete-button {
   border: none;
   background-color: inherit;
   float: right;
 }
 
-.history-data-form{
+.history-data-form {
   margin: 10px;
   border-bottom: 1px solid #e7e7e7;
+}
+
+.remove-all-history-button {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  width: inherit;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.remove-all-button {
+  border: none;
+
+  background-color: inherit;
 }

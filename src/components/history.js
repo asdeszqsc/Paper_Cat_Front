@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/history.css';
+import paperdata from "../server/data_44197_head.json";
 
 class Dataform extends Component {
     render() { 
@@ -19,39 +20,40 @@ class Dataform extends Component {
 class History extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            keyword:[
-                {
-                    id:1,
-                    name:'머신러닝',
-                },
-                {
-                    id:2,
-                    name:'인공지능',
-                },
-                {
-                    id:3,
-                    name:'임베딩'
-                },
-            ],
+        this.state = {
         }
     }
 
     MapList = (data) =>{
-        console.log(data);
         return(
         data.map((keyword, index) =>{ return (<Dataform name={keyword.name} key={index}/>);})
         );
     }
 
     render() {
-        const {keyword} = this.state;
-        return ( 
-            <div className="history-box">
-                <h5 className="history-title">검색 기록</h5>
-                {this.MapList(keyword)}
-            </div>
-        );
+        const keyword = this.props.keyword;
+        console.log(keyword);
+
+        if(!keyword)
+            return(
+                <div className="history-box">
+                    <h5 className="history-title">검색 기록</h5>
+                    <div className="remove-all-history-button">
+                        <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+                    </div>
+                </div>
+            );
+        else
+            return ( 
+                <div className="history-box">
+                    <h5 className="history-title">검색 기록</h5>
+                    {this.MapList(keyword)}
+                    {console.log("complete")}
+                    <div className="remove-all-history-button">
+                        <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+                    </div>
+                </div>
+            );
     }
 }
 
