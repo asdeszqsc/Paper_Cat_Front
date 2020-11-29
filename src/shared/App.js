@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom/cjs/react-router-dom.min';
-import {Home, About} from '../routes';
-import {Temppaper} from '../routes/Temppaper';
+import {Home, About, Temppaper} from '../routes';
 
 class App extends Component {
     render(){ 

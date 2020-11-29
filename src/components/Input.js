@@ -18,7 +18,7 @@ class SearchBox extends Component {
         localStorage.setItem('keyword', JSON.stringify(this.state.keyword));
         console.log(localStorage.getItem("keyword"));
         console.log(this.state);
-        // window.location.replace('/about/1');
+        window.location.replace('/about/');
     }
 
     SubmitbyEnter = (target) => {
@@ -35,8 +35,7 @@ class SearchBox extends Component {
         if(data === '')
             return(alert("키워드를 입력해주세요."));
         const {keyword} = this.state;
-        this.setState({keyword: keyword.concat({ name: data})});
-        this.gotoResult();
+        this.setState({keyword: keyword.concat({name: data})}, ()=> {this.gotoResult()});
     }
 
     render() {

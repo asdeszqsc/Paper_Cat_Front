@@ -6,11 +6,12 @@ import '../css/history.css';
 
 class RecKeywordForm extends Component {
     state = { }
+
     render() { 
         return ( 
             <div>
                 <div className="recommand-data-form">
-                    <button>{this.props.name}</button>
+                    <button onClick={() => this.props.AddbyClick(this.props.name, this.props.id)}>{this.props.name}</button>
                 </div>
             </div> 
         );
@@ -41,7 +42,7 @@ class Recommand extends Component {
     
     MapList = (data) =>{
         return(
-        data.map((keyword, index) =>{ return (<RecKeywordForm name={keyword.name} key={index}/>);})
+        data.map((keyword, index) =>{ return (<RecKeywordForm AddbyClick={this.props.AddbyClick} name={keyword.name} key={index}/>);})
         );
     }
 

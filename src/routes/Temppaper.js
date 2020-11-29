@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import papers from "../server/data_44197_head.json";
+import papers from '../server/result2.json';
 
 
 class Temppaper extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {
+    }
   }
-  render() { 
-    return ( 
-      <div>
 
+    componentDidMount(){
+      this._getList(papers);
+    }
+
+    _getList = (data) => {
+      this.setState({paper: JSON.parse(data)});
+    }
+
+  render() { 
+    {console.log(this.state)}
+    return (
+      
+      <div>
+        
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';  
 import { Paper } from '../server/papers_db.js';
-import paperdata from "../server/data_44197_head.json";
 import '../css/paper.css';
 
 class Author extends Component {
@@ -72,9 +71,6 @@ class Papers extends Component{
 
     
     render() {
-        const {temppaper} = JSON.parse(paperdata);
-        console.log(temppaper);
-
         return ( 
             <div className="paper-form">
                 <div className="title"> 
