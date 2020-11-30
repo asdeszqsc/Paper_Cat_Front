@@ -1,4 +1,22 @@
+.svg{
+  vertical-align: top;
+}
+
+a{
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+}
+
+a:hover{
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+}
+
 .paper-form {
+  background-color: rgb(234 234 234 / 37%);
+  border-radius: 1em;
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
   min-height: 100px;
@@ -6,8 +24,31 @@
 }
 
 .paper-keyword-form {
-  border: black 0.5px solid;
-  margin: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 0.5em;
+    border: black solid 1px;
+    margin: 10px;
+    padding: 5px;
+    background-color: #383838;
+}
+
+.short-info-form{
+  margin-left: 10px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.before-expand{
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.before-short-info{
+  margin-bottom: 20px;
 }
 
 .title {
@@ -30,7 +71,16 @@
   background-color: white;
 }
 
+.fold-button{
+  float: right;
+  margin-right: 30px;
+  border: none;
+  background-color: inherit;
+  margin-top: 5px;
+}
+
 .paper-title-box {
+  font-size: medium;
   font-weight: 700;
   border-bottom: #c7daef 1px solid;
   margin: 20px;
@@ -47,6 +97,7 @@
 
 .page-position {
   text-align: center;
+  margin-top: 30px;
 }
 
 .paper-ref-form {
@@ -57,6 +108,25 @@
 .author {
   min-width: 150px;
   margin-left: 20px;
+}
+
+.detail-list-form{
+  min-width: 500px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.detail-form{
+  list-style: none;
+  padding-left: 15px;
+  width: 150px;
+}
+
+.strong{
+  display: inline-block;
+  width: 160px;
+  color: #808080;
+  font-size: 15px;
 }
 
 .academy {
@@ -72,12 +142,15 @@
 .abstract {
   font-size: small;
   margin: 10px;
-  border: darkblue solid 0.5px;
   line-height: 201%;
 }
 
 .keyword {
   margin-bottom: 20px;
+}
+
+.fold-button-form{
+  height: 50px;
 }
 
 .reference {

@@ -39,23 +39,43 @@ class History extends Component {
 
         if(!keyword)
             return(
-                <div className="history-box">
-                    <h5 className="history-title">검색 기록</h5>
-                    <div className="remove-all-history-button">
-                        <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+                <div>
+                    <div className="history-title">
+                        <span>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{marginBottom:'5px', marginRight:'5px'}}>
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                            </svg>
+                        </span>
+                        <span>검색 기록</span>
+                    </div>
+                    <div className="history-box">
+                        <div className="remove-all-history-button">
+                            <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+                        </div>
                     </div>
                 </div>
             );
         else
-            return ( 
-                <div className="history-box">
-                    <h5 className="history-title">검색 기록</h5>
-                    {this.MapList(keyword)}
-                    {console.log("complete")}
-                    <div className="remove-all-history-button">
-                        <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+            return (
+                <div>
+                    <div className="history-title">
+                        <span>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{marginBottom:'5px', marginRight:'5px'}}>
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                            </svg>
+                        </span>
+                        <span>검색 기록</span>
                     </div>
-                </div>
+                    <div className="history-box">
+                        {this.MapList(keyword)}
+                        {console.log("complete")}
+                        <div className="remove-all-history-button">
+                            <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
+                        </div>
+                    </div>
+                </div> 
             );
     }
 }

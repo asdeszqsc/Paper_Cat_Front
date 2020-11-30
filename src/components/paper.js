@@ -2,6 +2,45 @@ import React, { Component, useEffect, useState } from 'react';
 import { Paper } from '../server/papers_db.js';
 import '../css/paper.css';
 
+
+class Shortinfo extends Component {
+    state = {  }
+    render() { 
+        return ( 
+            <span className="short-info-form">
+                <span className="shortinfo"> {this.props.Paper.author[0]} | </span>
+                <span className="shortinfo">{this.props.Paper.academy} | </span>
+                <span className="shortinfo">{this.props.Paper.year}</span>
+            </span>
+        );
+    }
+}
+
+class Detailinfo extends Component {
+    state = {  }
+    render() { 
+        return ( 
+            <div>
+                <ul className="detail-form">
+                    <li className="detail-list-form">
+                        <span className="strong">저자</span>
+                        <span className="detail-info">{this.props.Map_author(this.props.Paper.author)}</span>
+                    </li>
+                    <li className="detail-list-form">
+                        <span className="strong">학회</span>
+                        <span className="detail-info">{this.props.Paper.academy}</span>
+                    </li>
+                    <li className="detail-list-form">
+                        <span className="strong">발행연도</span>
+                        <span className="detail-info">{this.props.Paper.year}</span>
+                    </li>
+                </ul>
+            </div>
+        );
+    }
+}
+
+
 class Author extends Component {
     render() { 
         return ( 
@@ -42,7 +81,9 @@ class RefPaper extends Component {
 class Papers extends Component{
     constructor(props) {
         super(Paper);
-        this.state = {  }
+        this.state = { 
+            isfold: 0,
+        }
     }
 
     Map_author = data =>{
@@ -69,40 +110,40 @@ class Papers extends Component{
         );
     }
 
+    UnfoldByClick = () =>{
+        this.setState({isfold: this.state.isfold === 1? 0 : 1});
+    }
     
     render() {
+        if(this.state.isfold === 0)
+            return(
+                <div className="before-expand">
+                    <div className="title"> 
+                        <a href={this.props.Paper.link} target="_blank">
+                            {this.props.Paper.title}
+                        </a>
+                    </div>
+                    <div className="before-short-info">
+                        <Shortinfo Paper={this.props.Paper}></Shortinfo>
+                        <span>
+                            <button className='expand-button' onClick={this.UnfoldByClick}>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            );
+
         return ( 
             <div className="paper-form">
                 <div className="title"> 
-                    <a href={this.props.Paper.link}>
+                    <a href={this.props.Paper.link} target="_blank">
                         {this.props.Paper.title}
                     </a>
                 </div>
-                <div className="short-info">
-                    <span className="author">
-                        <div className="paper-title-box">
-                            저자
-                        </div>
-                        {this.Map_author(this.props.Paper.author)}
-                    </span>
-                    <span className="academy">
-                        <div className="paper-title-box">
-                            학회
-                        </div>
-                        {this.props.Paper.academy} 
-                    </span>
-                    <span className="year">
-                        <div className="paper-title-box">
-                            발행연도
-                        </div>
-                        {this.props.Paper.year}
-                    </span>
-                    <button className='expand-button'>
-                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                    </svg>
-                    </button>
-                </div>
+                <Detailinfo Paper={this.props.Paper} Map_author={this.Map_author}></Detailinfo>
                     <div className="abstract">
                         <div className="paper-title-box">
                             초록
@@ -126,6 +167,13 @@ class Papers extends Component{
                             키워드
                         </div>
                         {this.Map_keyword(this.props.Paper.keyword)}
+                    </div>
+                    <div className="fold-button-form">
+                        <button className="fold-button" onClick={this.UnfoldByClick}>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                            </svg>
+                        </button>
                     </div>
             </div>
         );

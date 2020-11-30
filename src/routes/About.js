@@ -44,7 +44,7 @@ class About extends Component {
             <div className="contents-wrap">
                 <div className="result-header">
                     <span className="Logo">
-                        <a href='/'>페이퍼캣</a>
+                        <a className="hidden-logo" href='/'>페이퍼캣</a>
                     </span>
                     <span className="result-input-box">
                         <SearchBox></SearchBox>
@@ -61,7 +61,13 @@ class About extends Component {
                         <PaperTable></PaperTable>
                     </span>
                 </div>
+
+                {/* <div style={{textAlign:'center'}}>
+                    <img src={img}></img>
+                </div> */}
             </div>
+            
+
             
         );
     }

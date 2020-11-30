@@ -40,7 +40,7 @@ class PaperTable extends Component {
         const pagedpaper = paginate(Paper, this.state.currentpage, this.state.pageSize);
         
         if(count === 0)
-        return(<div>No search Results.</div>);
+        return(<div>그런건 없어용</div>);
         
         return ( 
             <div className="paper-result">

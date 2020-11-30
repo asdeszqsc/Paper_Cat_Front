@@ -2,8 +2,12 @@
   text-align: left;
 }
 
+.pagination{
+  justify-content: center;
+}
+
 .result-input-box {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-top: 30px;
 }
 
@@ -12,8 +16,13 @@
 }
 
 .Logo {
+  display: inline-block;
   position: relative;
-  left: 50px;
+  background: url(../image/small_logo.png) no-repeat;
+  left: 10px;
+  width: 210px;
+  height: 60px;
+  bottom: 20px;
 }
 
 .count-result {
@@ -27,7 +36,7 @@
   position: absolute;
   width: 800px;
   min-height: 1000px;
-  margin-left: 1%;
+  margin-left: 3%;
   margin-top: 1%;
   text-align: left;
 }
@@ -47,7 +56,7 @@
   display: inline-block;
   border-right: 1px solid #e7e7e7;
   margin: 0 auto;
-  width: 200px;
+  width: 220px;
   min-height: 1030px;
   background-color: rgb(255, 255, 255);
 }
@@ -55,6 +64,17 @@
 .form-control {
   border: 3px solid #ced4da;
   border-right: none;
+}
+
+.hidden-logo{
+  font-size: 0px;
+  display: inline-block;
+  padding-left: 210px;
+  padding-bottom: 60px;
+}
+
+.hidden-logo:hover{
+  font-size: 0px;
 }
 
 .input-group {
