@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import No_search_logo from '../image/no_result_logo.png'
 import '../css/result.css';
 import Papers from './paper';
-import { Paper } from '../server/papers_db.js';
+import papers from '../server/data_10000.json';
 import _ from 'lodash';
 
 export function paginate(items, pageNumber, pageSize){
@@ -16,13 +17,13 @@ export function paginate(items, pageNumber, pageSize){
 
 class PaperTable extends Component {
     constructor(props) {
-        super(Paper);
-        this.state = { 
-            pageSize : 2,
+        super(props);
+        this.state = {
+            Paper: JSON.parse(papers), 
+            pageSize : 10,
             currentpage: 1,
         }
     }
-
     MapPaper = data =>{
         return(
             data.map((keyword, index) => {return(<Papers Paper={keyword} key={index}></Papers>);})
@@ -30,17 +31,25 @@ class PaperTable extends Component {
     }
 
     handlePageChange = (page) =>{
-        this.setState({...Paper, currentpage: page});
+        this.setState({currentpage: page});
     };
 
     render() {
-        const {length: count} = Paper;
+        const {length: count} = this.state.Paper.data;
+        const {length: keyword_count} = this.props.keyword;
         const pagecount = Math.ceil(count / this.state.pageSize);
         const pages = _.range(1, pagecount + 1);
-        const pagedpaper = paginate(Paper, this.state.currentpage, this.state.pageSize);
+        const pagedpaper = paginate(this.state.Paper.data, this.state.currentpage, this.state.pageSize);
         
-        if(count === 0)
-        return(<div>그런건 없어용</div>);
+        if(count === 0 || keyword_count === 0)
+        return(
+            <div className="paper-result">
+                <div className="no-results">
+                    <img src={No_search_logo} className="no-results-img"></img>
+                    <div className="no-results-font">앗..! 그런건 없어용~</div>
+                </div>
+            </div>
+            );
         
         return ( 
             <div className="paper-result">

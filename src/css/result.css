@@ -90,3 +90,25 @@
   padding-left: 21px;
   right: 1px;
 }
+
+.page-link{
+  color: black;
+}
+
+.page-item.active .page-link{
+  background-color: rgb(46, 38, 38);
+  border-color: rgb(46, 38, 38);
+}
+
+.no-results-img{
+    margin-left: 200px;
+    border-bottom: #464646 5px solid;
+    border-radius: 1em;
+    margin-bottom: 50px;
+}
+
+.no-results-font{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}

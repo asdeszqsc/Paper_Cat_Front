@@ -9,7 +9,7 @@ class About extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            keyword: JSON.parse(localStorage.getItem("keyword", JSON.stringify("name")))
+            keyword: JSON.parse(localStorage.getItem("keyword", JSON.stringify("name"))) || []
         }
     }
 
@@ -38,8 +38,6 @@ class About extends Component {
 
     
     render() { 
-        console.log(this.state.paper);
-
         return ( 
             <div className="contents-wrap">
                 <div className="result-header">
@@ -58,7 +56,7 @@ class About extends Component {
                         <Recommand keyword={this.state.keyword} AddbyClick={this.AddbyClick}/>
                     </span>
                     <span className="main-contents-box">
-                        <PaperTable></PaperTable>
+                        <PaperTable keyword={this.state.keyword}></PaperTable>
                     </span>
                 </div>
 

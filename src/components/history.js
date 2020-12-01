@@ -69,11 +69,11 @@ class History extends Component {
                         <span>검색 기록</span>
                     </div>
                     <div className="history-box">
-                        {this.MapList(keyword)}
-                        {console.log("complete")}
                         <div className="remove-all-history-button">
                             <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
                         </div>
+                        {this.MapList(keyword)}
+                        {console.log("complete")}
                     </div>
                 </div> 
             );

@@ -23,16 +23,16 @@ class Detailinfo extends Component {
             <div>
                 <ul className="detail-form">
                     <li className="detail-list-form">
-                        <span className="strong">저자</span>
-                        <span className="detail-info">{this.props.Map_author(this.props.Paper.author)}</span>
+                        <div className="strong">저자</div>
+                        <div className="detail-info">{this.props.Map_author(this.props.Paper.author)}</div>
                     </li>
                     <li className="detail-list-form">
-                        <span className="strong">학회</span>
-                        <span className="detail-info">{this.props.Paper.academy}</span>
+                        <div className="strong">학회</div>
+                        <div className="detail-info">{this.props.Paper.academy}</div>
                     </li>
                     <li className="detail-list-form">
-                        <span className="strong">발행연도</span>
-                        <span className="detail-info">{this.props.Paper.year}</span>
+                        <div className="strong">발행연도</div>
+                        <div className="detail-info">{this.props.Paper.year}</div>
                     </li>
                 </ul>
             </div>
@@ -100,7 +100,7 @@ class Papers extends Component{
 
     Map_recpaper = data =>{
         return(
-            data.map((keyword, index) => {return(<RecPaper recommand_paper={keyword} key={index}></RecPaper>);})
+            data.map((keyword, index) => {return(<RecPaper recommend_paper={keyword} key={index}></RecPaper>);})
         );
     }
 
@@ -160,7 +160,7 @@ class Papers extends Component{
                         <div className="paper-title-box">
                             추천 논문
                         </div>
-                        {this.Map_recpaper(this.props.Paper.recommand_paper)}
+                        {this.Map_recpaper(this.props.Paper.recommend_paper)}
                     </div>
                     <div className="keyword">
                         <div className="paper-title-box">

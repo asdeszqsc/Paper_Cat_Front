@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import papers from '../server/result2.json';
+import papers from '../server/data_10000.json';
 
 
 class Temppaper extends Component {

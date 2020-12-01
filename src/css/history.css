@@ -83,11 +83,15 @@
   width: 150px;
   vertical-align: baseline;
   text-align: center;
+  background-color: #60666b;
 }
 
 .remove-all-button {
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  background-color: inherit;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: inherit;
 }
