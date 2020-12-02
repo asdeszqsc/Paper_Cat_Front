@@ -25,10 +25,11 @@ class Recommand extends Component {
         this.state = 
         {   
             sen0_keyword:[{}],
-            sen1_keyword:[{id:1, name:'LSTM',},{id:2,name:'CNN',},{id:3,name:'RNN'}],
-            sen2_keyword:[{id:1, name:'윤태섭'},{id:2, name:'배해진'},{id:3, name:'안인수'},],
-            sen3_keyword:[{id:1, name:'머신러닝'},{id:2, name:'무인항공기',},{id:3, name:'ANN'},],
-
+            sen1_keyword:[{id:1, name:'딥러닝'},{id:2, name:'데이터마이닝',},{id:3, name:'의사결정트리'},{id:4, name:'항공기'},],
+            sen2_keyword:[{id:1, name:'선형회귀'},{id:2, name:'인공신경망'},{id:3, name:'항공기'},],
+            sen3_keyword:[{id:1, name:'예측모델'},{id:2, name:'가우시안',},{id:3, name:'심층신경망'},{id:4, name:'컨볼루션'},],
+            sen4_keyword:[{id:1, name:'인공신경망'},{id:2, name:'로지스틱회귀'},{id:3, name:'FCM'},],
+            sen5_keyword:[{id:1, name:'레이더'},{id:2, name:'위성'},{id:3, name:'모델링'},{id:4, name:'수지'}],
         }
     }
     
@@ -45,9 +46,12 @@ class Recommand extends Component {
         console.log(keyword);
 
         const {length: count} = this.props.keyword;
-        const sen_num= 0;
-        
-        if(count >0 && this.props.keyword[0].name === '머신러닝') keyword = this.state.sen3_keyword;
+        let sen_num= 0;
+
+        if(count >0){
+            if(count === 1 && this.props.keyword[0].name === '머신러닝') {keyword = this.state.sen1_keyword; sen_num = 1;}
+            if(count === 2 && this.props.keyword[1].name === '의사결정트리') {{keyword = this.state.sen2_keyword; sen_num = 2;}}
+        }
         
         return (
             <div>

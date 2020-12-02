@@ -8,7 +8,7 @@ class App extends Component {
             <div>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About} />
-                <Route path="/temp" component={Temppaper}></Route>
+                {/* <Route path="/temp" component={Temppaper}></Route> */}
             </div>
         );
     }
