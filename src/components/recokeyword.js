@@ -22,21 +22,13 @@ class RecKeywordForm extends Component {
 class Recommand extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            keyword:[
-                {
-                    id:1,
-                    name:'LSTM',
-                },
-                {
-                    id:2,
-                    name:'CNN',
-                },
-                {
-                    id:3,
-                    name:'RNN'
-                }
-            ]
+        this.state = 
+        {   
+            sen0_keyword:[{}],
+            sen1_keyword:[{id:1, name:'LSTM',},{id:2,name:'CNN',},{id:3,name:'RNN'}],
+            sen2_keyword:[{id:1, name:'윤태섭'},{id:2, name:'배해진'},{id:3, name:'안인수'},],
+            sen3_keyword:[{id:1, name:'머신러닝'},{id:2, name:'무인항공기',},{id:3, name:'ANN'},],
+
         }
     }
     
@@ -46,8 +38,17 @@ class Recommand extends Component {
         );
     }
 
-    render() { 
-        const {keyword}= this.state;
+
+
+    render() {
+        let keyword = this.state.sen0_keyword;
+        console.log(keyword);
+
+        const {length: count} = this.props.keyword;
+        const sen_num= 0;
+        
+        if(count >0 && this.props.keyword[0].name === '머신러닝') keyword = this.state.sen3_keyword;
+        
         return (
             <div>
                 <div className="recommend-title">
@@ -57,12 +58,11 @@ class Recommand extends Component {
                         </svg>
                     </span>
                     <span> 추천 키워드</span>
-                    </div>
+                </div>
                 <div className="recommand-box">
                     {this.MapList(keyword)}
                 </div>
-            </div> 
-            
+            </div>
         );
     }
 }

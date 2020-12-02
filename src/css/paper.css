@@ -15,7 +15,7 @@ a:hover{
 }
 
 .paper-form {
-  background-color: rgb(234 234 234 / 37%);
+  background-color: #faf9f9;
   border-radius: 1em;
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
@@ -30,10 +30,10 @@ a:hover{
     font-weight: 600;
     font-size: 14px;
     border-radius: 0.5em;
-    border: black solid 1px;
+    border: #599696 solid 1px;
     padding: 5px;
     margin: 5px;
-    background-color: #383838;
+    background-color: #5ea3a3;
 }
 
 .short-info-form{
@@ -83,7 +83,7 @@ a:hover{
 .paper-title-box {
   font-size: medium;
   font-weight: 700;
-  border-bottom: #c7daef 1px solid;
+  border-bottom: #add2c9 1px solid;
   margin: 20px;
 }
 
@@ -159,5 +159,6 @@ a:hover{
   height: 50px;
 }
 
-.reference {
+.page-link{
+  cursor: pointer;
 }

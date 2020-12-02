@@ -3,6 +3,7 @@ import No_search_logo from '../image/no_result_logo.png'
 import '../css/result.css';
 import Papers from './paper';
 import papers from '../server/data_10000.json';
+import ML_data from '../server/ML.json';
 import _ from 'lodash';
 
 export function paginate(items, pageNumber, pageSize){
@@ -21,9 +22,19 @@ class PaperTable extends Component {
         this.state = {
             Paper: JSON.parse(papers), 
             pageSize : 10,
+            startpage: 1,
             currentpage: 1,
         }
     }
+
+    componentDidMount=()=>{
+        const {length: count}= this.props.keyword;
+        if( count>0 && this.props.keyword[0].name === '머신러닝'){
+            this.setState({Paper: JSON.parse(ML_data)}, ()=>{console.log(this.state.Paper)} );
+        }
+    }
+
+
     MapPaper = data =>{
         return(
             data.map((keyword, index) => {return(<Papers Paper={keyword} key={index}></Papers>);})
@@ -34,11 +45,32 @@ class PaperTable extends Component {
         this.setState({currentpage: page});
     };
 
+    handlestartpage_plus = (data, count) =>{
+        if(this.state.startpage >= count-19) {
+            this.setState({startpage: count-9});
+        }
+        else
+            this.setState({startpage: data+10});
+    }
+
+    handlestartpage_minus = (data) =>{
+        if(this.state.startpage <=10) return;
+        this.setState({startpage: data-10});
+    }
+
+    handlestartpage_last = (count) =>{
+        this.setState({startpage: count-9});
+    }
+
+    handlestartpage_first = () =>{
+        this.setState({startpage: 1});
+    }
+
     render() {
         const {length: count} = this.state.Paper.data;
         const {length: keyword_count} = this.props.keyword;
         const pagecount = Math.ceil(count / this.state.pageSize);
-        const pages = _.range(1, pagecount + 1);
+        const pages = _.range(this.state.startpage, this.state.startpage + 10);
         const pagedpaper = paginate(this.state.Paper.data, this.state.currentpage, this.state.pageSize);
         
         if(count === 0 || keyword_count === 0)
@@ -50,18 +82,48 @@ class PaperTable extends Component {
                 </div>
             </div>
             );
-        
+
         return ( 
             <div className="paper-result">
                 <span className="count-result">검색결과 {count}개</span>
                 {this.MapPaper(pagedpaper)}
                 <nav className="page-position">
                     <ul className="pagination">
+                        <li>
+                            <a className="page-link" onClick={this.handlestartpage_first}>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a className="page-link" onClick={()=>this.handlestartpage_minus(this.state.startpage)}>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </a>
+                        </li>
                         {pages.map(page => (
                             <li key={page} className={page === this.state.currentpage ? "page-item active" : "page-item"}>
                                 <a className="page-link" onClick={() => this.handlePageChange(page)}>{page}</a>
                             </li>
                         ))}
+                        <li>
+                            <a className="page-link" onClick={()=>this.handlestartpage_plus(this.state.startpage, pagecount)}>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a className="page-link" onClick={()=>this.handlestartpage_last(pagecount)}>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

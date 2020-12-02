@@ -59,10 +59,6 @@ class About extends Component {
                         <PaperTable keyword={this.state.keyword}></PaperTable>
                     </span>
                 </div>
-
-                {/* <div style={{textAlign:'center'}}>
-                    <img src={img}></img>
-                </div> */}
             </div>
             
 

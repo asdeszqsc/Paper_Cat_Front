@@ -61,7 +61,7 @@ class RecPaper extends Component {
     render() {
         return (
             <div className="paper-rec-form">
-                {this.props.key}. {this.props.recommand_paper}
+                {this.props.key}. {this.props.recommend_paper}
             </div>
         );
     }
