@@ -119,12 +119,12 @@ class Papers extends Component{
             return(
                 <div className="before-expand">
                     <div className="title"> 
-                        <a href={this.props.Paper.link} target="_blank">
-                            {this.props.Paper.title}
+                        <a href={this.props.Paper._source.link} target="_blank">
+                            {this.props.Paper._source.title}
                         </a>
                     </div>
                     <div className="before-short-info">
-                        <Shortinfo Paper={this.props.Paper}></Shortinfo>
+                        <Shortinfo Paper={this.props.Paper._source}></Shortinfo>
                         <span>
                             <button className='expand-button' onClick={this.UnfoldByClick}>
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -139,34 +139,34 @@ class Papers extends Component{
         return ( 
             <div className="paper-form">
                 <div className="title"> 
-                    <a href={this.props.Paper.link} target="_blank">
-                        {this.props.Paper.title}
+                    <a href={this.props.Paper._source.link} target="_blank">
+                        {this.props.Paper._source.title}
                     </a>
                 </div>
-                <Detailinfo Paper={this.props.Paper} Map_author={this.Map_author}></Detailinfo>
+                <Detailinfo Paper={this.props.Paper._source} Map_author={this.Map_author}></Detailinfo>
                     <div className="abstract">
                         <div className="paper-title-box">
                             초록
                         </div>
-                        {this.props.Paper.abstract}
+                        {this.props.Paper._source.abstract}
                     </div>
                     <div className="reference">
                         <div className="paper-title-box">
                             참고 문헌
                         </div>
-                        {this.Map_ref(this.props.Paper.reference)}
+                        {this.Map_ref(this.props.Paper._source.reference)}
                     </div>
                     <div className="recommand-paper">
                         <div className="paper-title-box">
                             추천 논문
                         </div>
-                        {this.Map_recpaper(this.props.Paper.recommend_paper)}
+                        {this.Map_recpaper(this.props.Paper._source.recommend_paper)}
                     </div>
                     <div className="keyword">
                         <div className="paper-title-box">
                             키워드
                         </div>
-                        {this.Map_keyword(this.props.Paper.keyword)}
+                        {this.Map_keyword(this.props.Paper._source.keyword)}
                     </div>
                     <div className="fold-button-form">
                         <button className="fold-button" onClick={this.UnfoldByClick}>

@@ -43,13 +43,12 @@ class Recommand extends Component {
 
     render() {
         let keyword = this.state.sen0_keyword;
-        console.log(keyword);
-
+        // console.log(keyword);
         const {length: count} = this.props.keyword;
         let sen_num= 0;
 
         if(count >0){
-            if(count === 1 && this.props.keyword[0].name === '머신러닝') {keyword = this.state.sen1_keyword; sen_num = 1;}
+            if(this.props.keyword[0].name === '머신러닝') {keyword = this.state.sen1_keyword; sen_num = 1;}
             if(count === 2 && this.props.keyword[1].name === '의사결정트리') {{keyword = this.state.sen2_keyword; sen_num = 2;}}
         }
         

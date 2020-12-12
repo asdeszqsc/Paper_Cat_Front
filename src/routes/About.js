@@ -33,6 +33,8 @@ class About extends Component {
 
     AddbyClick = (data, id) =>{
         const {keyword} = this.state;
+        const {length : count} = this.state.keyword;
+        if(count >=4 ) return(alert('키워드는 4개까지만 검색할 수 있어용~'));
         this.setState({keyword: keyword.concat({id: id, name: data})}, ()=> {this.gotoResult()});
     }
 

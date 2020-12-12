@@ -2,6 +2,7 @@
   "name": "front_papercat",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://110.14.247.126:8080",
   "dependencies": {
     "@material-ui/core": "^4.11.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "cors": "^2.8.5",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",

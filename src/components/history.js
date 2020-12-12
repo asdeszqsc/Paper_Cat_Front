@@ -35,7 +35,7 @@ class History extends Component {
     render() {
         
         const keyword = this.props.keyword;
-        console.log(keyword);
+        // console.log(keyword);
 
         if(!keyword)
             return(
@@ -73,7 +73,6 @@ class History extends Component {
                             <button className="remove-all-button" onClick={this.props.RemoveAllHistory}>검색기록 삭제</button>
                         </div>
                         {this.MapList(keyword)}
-                        {console.log("complete")}
                     </div>
                 </div> 
             );

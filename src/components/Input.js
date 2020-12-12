@@ -35,6 +35,9 @@ class SearchBox extends Component {
         if(data === '')
             return(alert("키워드를 입력해주세요."));
         const {keyword} = this.state;
+        const {length: count} = this.state.keyword;
+        console.log(count);
+        if(count >= 4) return(alert("키워드는 4개까지만 검색할수있어용~"));
         this.setState({keyword: keyword.concat({name: data})}, ()=> {this.gotoResult()});
     }
 

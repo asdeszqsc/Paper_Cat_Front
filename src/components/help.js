@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/help.css';
-import HelpImage from '../image/image_help.jpg';
+import HelpImage from '../image/help_real.png';
 import { Overlay, Popover , Button } from 'react-bootstrap';
 
 function Help (){

@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import No_search_logo from '../image/no_result_logo.png'
 import '../css/result.css';
 import Papers from './paper';
-import papers from '../server/data_table.json';
-import ML_data from '../server/ML.json';
-import MLDTAR_data from '../server/MLDTAR.json';
-import MLAR_data from '../server/MLAR.json';
-import DTAR_data from '../server/DTAR.json';
-import MLDT_data from '../server/MLDT.json';
-import AR_data from '../server/AR.json';
+import axios from 'axios';
 
 import _ from 'lodash';
 
@@ -21,35 +15,46 @@ export function paginate(items, pageNumber, pageSize){
         .value();
 }
 
+class Nosearchresult extends Component {
+    state = {  }
+    render() { 
+        return ( 
+            <div className="paper-result">
+                <div className="no-results">
+                    <img src={No_search_logo} className="no-results-img"></img>
+                    <div className="no-results-font">앗..! 그런건 없어용~</div>
+                </div>
+            </div>
+        );
+    }
+}
+
+
 
 class PaperTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Paper: JSON.parse(papers), 
+            Paper: [], 
             pageSize : 10,
             startpage: 1,
             currentpage: 1,
+            err: 0,
+            Loading: 0,
         }
     }
 
-    componentDidMount=()=>{
-        const {length: count}= this.props.keyword;
-        if( count===1 && this.props.keyword[0].name === '머신러닝'){
-            this.setState({Paper: JSON.parse(ML_data)}, ()=>{console.log(this.state.Paper)} );
+    componentDidMount= async ()=>{        
+        try{
+            this.setState({Loading: 0}, ()=>{console.log('Loading...')});
+            const response = await axios.get('http://110.14.247.126:8080/?search=${this.props.keyword[0].name}');
+            this.setState({Paper: response.data});
+
         }
-        if(count===1 && this.props.keyword[0].name ==='항공기'){
-            this.setState({Paper: JSON.parse(AR_data)}, ()=>{console.log(this.state.Paper)} );
+        catch(e){
+            console.log(e);
         }
-        if(count===2 && this.props.keyword[1].name ==='의사결정트리'){
-            this.setState({Paper: JSON.parse(MLDT_data)}, ()=>{console.log(this.state.Paper)} );
-        }
-        if(count===3 && this.props.keyword[2].name ==='항공기'){
-            this.setState({Paper: JSON.parse(MLDTAR_data)}, ()=>{console.log(this.state.Paper)} );
-        }
-        if(count===2 && this.props.keyword[1].name ==='항공기'){
-            this.setState({Paper: JSON.parse(DTAR_data)}, ()=>{console.log(this.state.Paper)} );
-        }
+        this.setState({Loading: 0}, ()=>{console.log('Load complete!')});
     }
 
 
@@ -90,23 +95,15 @@ class PaperTable extends Component {
     }
 
     render() {
-        const {length: count} = this.state.Paper.data;
         const {length: keyword_count} = this.props.keyword;
+        if(!this.state.Paper || keyword_count === 0) return(<Nosearchresult></Nosearchresult>);
+        
+        const {length: count} = this.state.Paper;
         const pagecount = Math.ceil(count / this.state.pageSize);
         let pages = _.range(this.state.startpage, pagecount+1);
         if(pagecount >= 10)
             pages = _.range(this.state.startpage, this.state.startpage + 10);
-        const pagedpaper = paginate(this.state.Paper.data, this.state.currentpage, this.state.pageSize);
-
-        if(count === 0 || keyword_count === 0)
-        return(
-            <div className="paper-result">
-                <div className="no-results">
-                    <img src={No_search_logo} className="no-results-img"></img>
-                    <div className="no-results-font">앗..! 그런건 없어용~</div>
-                </div>
-            </div>
-            );
+        const pagedpaper = paginate(this.state.Paper, this.state.currentpage, this.state.pageSize);
 
         return ( 
             <div className="paper-result">
