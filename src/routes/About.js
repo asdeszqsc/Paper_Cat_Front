@@ -26,6 +26,12 @@ class About extends Component {
         console.log("storage cleared");
     }
 
+    RemoveAllHistorytoHome = () =>{
+        localStorage.clear();
+        window.location.replace('/');
+        console.log("storage cleared");
+    }
+
     RemoveItem = (name) =>{
         const {keyword} = this.state;
         this.setState({keyword: keyword.filter(info => info.name !== name)}, ()=> {this.gotoResult()});
@@ -34,7 +40,7 @@ class About extends Component {
     AddbyClick = (data, id) =>{
         const {keyword} = this.state;
         const {length : count} = this.state.keyword;
-        if(count >=4 ) return(alert('키워드는 4개까지만 검색할 수 있어용~'));
+        if(count >=3 ) return(alert('키워드는 3개까지만 검색할 수 있어용~'));
         this.setState({keyword: keyword.concat({id: id, name: data})}, ()=> {this.gotoResult()});
     }
 
@@ -44,7 +50,7 @@ class About extends Component {
             <div className="contents-wrap">
                 <div className="result-header">
                     <span className="Logo">
-                        <a className="hidden-logo" href='/'>페이퍼캣</a>
+                        <a className="hidden-logo" href='/' onClick={this.RemoveAllHistorytoHome}>페이퍼캣</a>
                     </span>
                     <span className="result-input-box">
                         <SearchBox></SearchBox>

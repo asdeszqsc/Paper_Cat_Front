@@ -3,6 +3,7 @@ import No_search_logo from '../image/no_result_logo.png'
 import '../css/result.css';
 import Papers from './paper';
 import axios from 'axios';
+import Qs from 'qs';
 
 import _ from 'lodash';
 
@@ -29,8 +30,6 @@ class Nosearchresult extends Component {
     }
 }
 
-
-
 class PaperTable extends Component {
     constructor(props) {
         super(props);
@@ -44,12 +43,13 @@ class PaperTable extends Component {
         }
     }
 
-    componentDidMount= async ()=>{        
+    componentDidMount= async ()=>{
+        const params={ search: this.props.keyword.reverse().map(value => value.name)};
+        let myaxios = axios.create({paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})});
         try{
             this.setState({Loading: 0}, ()=>{console.log('Loading...')});
-            const response = await axios.get('http://110.14.247.126:8080/?search=${this.props.keyword[0].name}');
+            const response = await myaxios.get('http://110.14.247.126:8000/',{params: params});
             this.setState({Paper: response.data});
-
         }
         catch(e){
             console.log(e);
@@ -74,7 +74,6 @@ class PaperTable extends Component {
         else if(this.state.startpage >= count-19) {
             this.setState({startpage: count-9});
         }
-
         else
             this.setState({startpage: data+10});
     }

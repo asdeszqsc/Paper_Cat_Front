@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import Qs from 'qs';
 import '../css/history.css';
 
 
 
 
 class RecKeywordForm extends Component {
-    state = { }
+    state = { 
+        Recommand: {
+            keyword:[""],
+        },
+    }
 
     render() { 
         return ( 
@@ -22,35 +28,38 @@ class RecKeywordForm extends Component {
 class Recommand extends Component {
     constructor(props) {
         super(props);
-        this.state = 
-        {   
-            sen0_keyword:[{}],
-            sen1_keyword:[{id:1, name:'딥러닝'},{id:2, name:'데이터마이닝',},{id:3, name:'의사결정트리'},{id:4, name:'항공기'},],
-            sen2_keyword:[{id:1, name:'선형회귀'},{id:2, name:'인공신경망'},{id:3, name:'항공기'},],
-            sen3_keyword:[{id:1, name:'예측모델'},{id:2, name:'가우시안',},{id:3, name:'심층신경망'},{id:4, name:'컨볼루션'},],
-            sen4_keyword:[{id:1, name:'인공신경망'},{id:2, name:'로지스틱회귀'},{id:3, name:'FCM'},],
-            sen5_keyword:[{id:1, name:'레이더'},{id:2, name:'위성'},{id:3, name:'모델링'},{id:4, name:'수지'}],
+        this.state ={
+            Recommend:[{
+                keyword:[""],
+            }],
         }
     }
     
+
+    componentDidMount= async ()=>{
+        const params={ keyword: this.props.keyword.reverse().map(value => value.name)};
+        let myaxios = axios.create({paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})});
+        try{
+            const response = await myaxios.get('http://110.14.247.126:8000/keyword/',{params: params});
+            this.setState({Recommend: response.data}, ()=>console.log(this.state));
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
     MapList = (data) =>{
         return(
-        data.map((keyword, index) =>{ return (<RecKeywordForm AddbyClick={this.props.AddbyClick} name={keyword.name} key={index}/>);})
+        data.map((keyword) =>{ return (<RecKeywordForm AddbyClick={this.props.AddbyClick} name={keyword}/>);})
         );
     }
 
 
 
     render() {
-        let keyword = this.state.sen0_keyword;
-        // console.log(keyword);
-        const {length: count} = this.props.keyword;
-        let sen_num= 0;
-
-        if(count >0){
-            if(this.props.keyword[0].name === '머신러닝') {keyword = this.state.sen1_keyword; sen_num = 1;}
-            if(count === 2 && this.props.keyword[1].name === '의사결정트리') {{keyword = this.state.sen2_keyword; sen_num = 2;}}
-        }
+        const recword = this.state.Recommend;
+        
+        
         
         return (
             <div>
@@ -63,10 +72,10 @@ class Recommand extends Component {
                     <span> 추천 키워드</span>
                 </div>
                 <div className="recommand-box">
-                    {this.MapList(keyword)}
+                    {this.MapList(recword[0].keyword)}
                 </div>
             </div>
-        );
+            );
     }
 }
 

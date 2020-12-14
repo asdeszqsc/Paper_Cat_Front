@@ -37,7 +37,7 @@ class SearchBox extends Component {
         const {keyword} = this.state;
         const {length: count} = this.state.keyword;
         console.log(count);
-        if(count >= 4) return(alert("키워드는 4개까지만 검색할수있어용~"));
+        if(count >= 3) return(alert("키워드는 3개까지만 검색할수있어용~"));
         this.setState({keyword: keyword.concat({name: data})}, ()=> {this.gotoResult()});
     }
 
