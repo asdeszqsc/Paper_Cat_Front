@@ -37,11 +37,12 @@ class Recommand extends Component {
     
 
     componentDidMount= async ()=>{
+        if({length : this.props.keyword } === 0) return;
         const params={ keyword: this.props.keyword.reverse().map(value => value.name)};
         let myaxios = axios.create({paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})});
         try{
             const response = await myaxios.get('http://110.14.247.126:8000/keyword/',{params: params});
-            this.setState({Recommend: response.data}, ()=>console.log(this.state));
+            this.setState({Recommend: response.data});
         }
         catch(e){
             console.log(e);
@@ -58,9 +59,6 @@ class Recommand extends Component {
 
     render() {
         const recword = this.state.Recommend;
-        
-        
-        
         return (
             <div>
                 <div className="recommend-title">

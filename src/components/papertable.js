@@ -44,6 +44,7 @@ class PaperTable extends Component {
     }
 
     componentDidMount= async ()=>{
+        if({length : this.props.keyword} === 0) return;
         const params={ search: this.props.keyword.reverse().map(value => value.name)};
         let myaxios = axios.create({paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})});
         try{
