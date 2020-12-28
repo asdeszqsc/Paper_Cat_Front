@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';  
+import React, { Component} from 'react';  
 import { Paper } from '../server/papers_db.js';
 import '../css/paper.css';
 

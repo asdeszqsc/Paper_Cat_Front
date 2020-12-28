@@ -4,12 +4,11 @@ import '../css/result.css';
 import Papers from './paper';
 import axios from 'axios';
 import Qs from 'qs';
-
+import {TailSpin} from '@agney/react-loading'
 import _ from 'lodash';
 
 export function paginate(items, pageNumber, pageSize){
     const startIndex = (pageNumber -1) * pageSize;
-
     return _(items)
         .slice(startIndex)
         .take(pageSize)
@@ -48,7 +47,7 @@ class PaperTable extends Component {
         const params={ search: this.props.keyword.reverse().map(value => value.name)};
         let myaxios = axios.create({paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})});
         try{
-            this.setState({Loading: 0}, ()=>{console.log('Loading...')});
+            this.setState({Loading: 1}, ()=>{console.log('Loading...')});
             const response = await myaxios.get('http://110.14.247.126:8000/',{params: params});
             this.setState({Paper: response.data});
         }
@@ -98,6 +97,9 @@ class PaperTable extends Component {
         const {length: keyword_count} = this.props.keyword;
         if(!this.state.Paper || keyword_count === 0) return(<Nosearchresult></Nosearchresult>);
         
+        if(this.state.Loading === 1) 
+            return(<TailSpin></TailSpin>);
+
         const {length: count} = this.state.Paper;
         const pagecount = Math.ceil(count / this.state.pageSize);
         let pages = _.range(this.state.startpage, pagecount+1);
